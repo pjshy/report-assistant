@@ -1,0 +1,26 @@
+{
+  "plugins": [
+    {
+      "convertPathData": false
+    },
+    {
+      "cleanupIDs": true
+    },
+    {
+      "removeXMLNS": true
+    },
+    {
+      "removeTitle": true
+    },
+    {
+      "removeAttrs": {
+        "attrs": [
+          "fill",
+          "stroke",
+          "svg:height",
+          "svg:width"
+        ]
+      }
+    }
+  ]
+}
