@@ -1,9 +1,11 @@
-const _ = require('lodash')
-
 exports.getDevTool = (argv) => {
   let devtool = 'nosources-source-map'
 
-  if (_.isString(argv.sourcemap)) {
+  if (argv.dev) {
+    devtool = 'source-map'
+  }
+
+  if (argv.sourcemap && typeof argv.sourcemap === 'string') {
     devtool = argv.sourcemap
   }
 

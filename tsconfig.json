@@ -35,6 +35,9 @@
     "suppressExcessPropertyErrors": true,
     "suppressImplicitAnyIndexErrors": true
   },
+  "include": [
+    "./src"
+  ],
   "exclude": [
     "node_modules",
   ]

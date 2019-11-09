@@ -70,7 +70,8 @@ typings/
 *.DS_Store
 
 dist
-cypress/
+cypress
+lib
 
 # storybook
 storybook-static

@@ -1,0 +1,12 @@
+{
+  "verbose": true,
+  "watch": [
+    "server/**/*.ts"
+  ],
+  "ignore": [
+    "server/**/*.spec.ts"
+  ],
+  "delay": "1000",
+  "exec": "node --inspect -r ts-node/register ./server/index.ts",
+  "ext": "ts ejs yml json"
+}

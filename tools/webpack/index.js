@@ -16,9 +16,9 @@ module.exports = (env) => {
     mode: argv.dev ? 'development' : 'production',
     devtool: getDevTool(argv),
     devServer: getDevServer(argv),
-    entry: {
-      app: argv.paths.app
-    },
+    entry: [
+      argv.paths.app
+    ],
     output: getOutput(argv),
     module: {
       noParse: [
