@@ -38,7 +38,7 @@ exports.getOptimization = (argv) => {
               return false
             }
             const modulePath = module.nameForCondition()
-            const whiteList = ['normalize-css']
+            const whiteList = []
             if (_.findIndex(whiteList, (moduleName) => modulePath.includes(moduleName)) >= 0) {
               return false
             } else {

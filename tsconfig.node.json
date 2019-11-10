@@ -11,6 +11,7 @@
     "importHelpers": false,
     "newLine": "LF",
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
 
     "noEmitHelpers": true,
     "noImplicitReturns": true,
@@ -19,7 +20,8 @@
     "noUnusedParameters": true
   },
   "include": [
-    "server/**/*.ts"
+    "server/**/*.ts",
+    "global.d.ts"
   ],
   "exclude": [
     "node_modules"

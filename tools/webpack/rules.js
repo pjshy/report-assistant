@@ -19,8 +19,9 @@ const getStylusLoader = (argv, isModules = true) => {
     {
       loader: 'css-loader',
       options: {
-        modules: isModules,
-        localIdentName: '[local]__[hash:base64:4]',
+        modules: isModules && {
+          localIdentName: '[local]__[hash:base64:4]'
+        },
         sourceMap: !!argv.sourcemap
       }
     },
@@ -33,10 +34,7 @@ const getStylusLoader = (argv, isModules = true) => {
     {
       loader: 'stylus-loader',
       options: {
-        import: pickByCondition(isModules, [
-          '~ui/style/mixin.styl',
-          '~ui/style/variables.styl'
-        ]),
+        import: pickByCondition(isModules, []),
         sourceMap: !!argv.sourcemap
       }
     }
@@ -65,16 +63,17 @@ const getStyleRules = (argv) => {
     },
     {
       test: /\.styl$/,
+      exclude: /node_modules/,
       use: getStylusLoader(argv, true)
     }
   ]
 }
 
-const getSvgRules = (argv) => {
+const getSvgRules = () => {
   return [
     {
       test: /\.svg$/i,
-      include: argv.paths.svgComponentDirs,
+      exclude: /node_modules/,
       use: [
         {
           loader: 'babel-loader',

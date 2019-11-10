@@ -93,6 +93,17 @@ exports.getPlugins = (argv) => {
       }
     })),
 
+    // pickByCondition(argv.dev, new HardSourceWebpackPlugin.ExcludeModulePlugin([
+    //   {
+    //     // HardSource works with mini-css-extract-plugin but due to how
+    //     // mini-css emits assets, assets are not emitted on repeated builds with
+    //     // mini-css and hard-source together. Ignoring the mini-css loader
+    //     // modules, but not the other css loader modules, excludes the modules
+    //     // that mini-css needs rebuilt to output assets every time.
+    //     test: /mini-css-extract-plugin[\\/]dist[\\/]loader/
+    //   }
+    // ])),
+
     pickByCondition(argv.analyse, new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       reportFilename: paths.analyseReport
@@ -104,7 +115,10 @@ exports.getPlugins = (argv) => {
      * https://github.com/webpack-contrib/mini-css-extract-plugin
      */
     new MiniCssExtractPlugin({
-      filename: paths.cssName
+      // Options similar to the same options in webpackOptions.output
+      // all options are optional
+      filename: paths.cssName,
+      ignoreOrder: false, // Enable to remove warnings about conflicting order
     })
   ])
 }
